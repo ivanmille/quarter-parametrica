@@ -1,0 +1,13 @@
+
+Smi.Graphic.radius_links     =    5;        %[mm]
+Smi.Graphic.radius_spheres   =    10;       %[mm]
+Smi.Graphic.crank_hole       =    15;       %[mm]
+Smi.Graphic.crank_thicknes   =    25;       %[mm]
+Smi.Graphic.damper_hole      =    20;       %[mm]
+Smi.Graphic.crank_thickness  =    5;        %[mm]
+Smi.Graphic.ARB_thickness    =    10;       %[mm]
+Smi.Graphic.OUT_ACT_diam     =    150;      %[mm]
+Smi.Graphic.OUT_ACT_thick    =    300;      %[mm]
+Smi.Graphic.ACT_hole         =    130;      %[mm]
+Smi.Graphic.ACT_height       =    500;      %[mm]
+Smi.Graphic.ACT_diam         =    500;      %[mm]
