@@ -45,8 +45,10 @@ for ii = 1:numel(dx)
     for jj = 1:numel(imposed_steering)
           
           kk=((ii-1)*numel(imposed_steering)+jj);              % sequential index regardless of the presence of two for cycles
-            
-          Smi = move_dx(dx(ii));                               % modifies the x coordinates by dx(ii)          
+          
+          
+          Smi = move_dx(dx(ii));                               % modifies the x coordinates by dx(ii)
+          Smi.Car.FRONT.LEFT.Dimension.Rack_initial = imposed_steering(jj)*0.2065 ;
           simIn(kk)=simIn(kk).setVariable('Smi' , Smi);        % imports the modified coordinates in the simulation
           
           disp(['ciclo ' num2str(kk) ' di ' num2str(n_sim)])   % GUI
