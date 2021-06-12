@@ -1,7 +1,11 @@
-% Calculates the influence of steering angle and jounce on camber
+% Calculates the influence of dx on tire forces
 
 
-%% Intro
+%% calcolo motionratio
+
+motionratio
+save('motionratio','motion_ratio','forza_stat','pos_stat')
+%% Intro'
 
 % half_FIX;
 quarter_FIX;
@@ -11,7 +15,7 @@ model = 'Parametrica';
 load_system(model);
 
 save_system(model);
-
+load('motionratio')
 Smi.general.jounce_mode     =  1;           %jounce ramp mode
 Smi.general.simulation_time =  1;           %[s]
 Smi.general.ramp_slope      =  50;          %[mm/s]
@@ -44,6 +48,7 @@ simIn(:) = simIn(:).setModelParameter('FixedStep' ,  num2str(dt));
 
 tic
 for ii = 1:numel(dx)
+    
     for jj = 1:numel(imposed_steering)
           
           kk=((ii-1)*numel(imposed_steering)+jj);              % sequential index regardless of the presence of two for cycles
