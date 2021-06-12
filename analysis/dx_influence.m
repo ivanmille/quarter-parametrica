@@ -20,7 +20,7 @@ dt                          =  0.001;     %[s]
 % sweep parameters
 
 dx                  =   0:1:70;                                  %range of steering angle tested [deg]
-imposed_steering    =   -150:5:150;                              %range of steering angle tested [deg]
+imposed_steering    =   -160:5:160;                              %range of steering angle tested [deg]
 
 n_sim               =   numel(imposed_steering)*numel(dx);                 %number of simulation
 
@@ -40,6 +40,8 @@ for ii = 1:numel(dx)
             
           Smi = move_dx(dx(ii));
           simIn(kk)=simIn(kk).setVariable('Smi' , Smi);
+          
+          disp(['ciclo ' num2str(kk) ' di ' num2str(n_sim)])
     end
 end
 toc
