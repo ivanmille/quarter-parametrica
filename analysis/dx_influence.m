@@ -26,6 +26,8 @@ dt                          =  0.001;       %[s]
 dx                  =   0:1:10;                                  %range of steering angle tested [deg]
 imposed_steering    =   -160:80:160;                              %range of steering angle tested [deg]
 
+Rack_initial        =   imposed_steering*0.2065;
+
 n_sim               =   numel(imposed_steering)*numel(dx);       %number of simulation
 n_steps             =   1+Smi.general.simulation_time/dt;
 
@@ -48,7 +50,7 @@ for ii = 1:numel(dx)
           
           
           Smi = move_dx(dx(ii));                               % modifies the x coordinates by dx(ii)
-          Smi.Car.FRONT.LEFT.Dimension.Rack_initial = imposed_steering(jj)*0.2065 ;
+          Smi.Car.FRONT.LEFT.Dimension.Rack_initial = Rack_initial(jj) ;
           simIn(kk)=simIn(kk).setVariable('Smi' , Smi);        % imports the modified coordinates in the simulation
           
           disp(['ciclo ' num2str(kk) ' di ' num2str(n_sim)])   % GUI
