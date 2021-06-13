@@ -28,7 +28,8 @@ Smi.Car.FRONT.LEFT.CAMBER                   =     0;                            
 Smi.Car.FRONT.LEFT.TOE                      =     0;                                   %[deg]
 Smi.Car.FRONT.LEFT.OUTER_ACTUATOR           =     [1550.042	612.490	-400.00];          %[mm]
 Smi.Car.FRONT.LEFT.initial_steering         =     0;                                   %[deg]
-Smi.Car.FRONT.LEFT.rack_ratio               =     0.20625;                                 %[mm/deg]
+Smi.Car.FRONT.LEFT.rack_ratio               =     0.20625;                             %[mm/deg]
+Smi.Car.FRONT.LEFT.static_mass              =     65.87;                               %[kg]
 
 
 %% FRONT RIGHT SUSPENSION
@@ -57,6 +58,7 @@ Smi.Car.FRONT.RIGHT.TYRE_DIAMETER            =     470;                         
 Smi.Car.FRONT.RIGHT.CAMBER                   =     0;                                          %[deg]
 Smi.Car.FRONT.RIGHT.TOE                      =     0;                                          %[deg]
 Smi.Car.FRONT.RIGHT.OUTER_ACTUATOR           =     [1550.042	-612.490	-400.00];          %[mm]
+Smi.Car.FRONT.RIGHT.static_mass              =     65.87;                                      %[kg]
 
 
 %% REAR LEFT SUSPENSION

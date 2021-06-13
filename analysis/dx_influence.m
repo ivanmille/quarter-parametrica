@@ -1,11 +1,22 @@
 % Calculates the influence of dx on tire forces
 
 
-%% calcolo motionratio
+%% Intro
+clear
+close all;
+clc
 
-motionratio
-save('motionratio','motion_ratio','forza_stat','pos_stat')
-%% Intro'
+%% sweep parameters
+
+dx                  =   0:1:1;                                  %range of steering angle tested [deg]
+imposed_steering    =   0:80:80;                              %range of steering angle tested [deg]
+
+%% motion ratios
+
+[motion_ratio,static_force,equilibrium_position] = calculate_motion_ratio(dx);
+
+
+%% model parameters
 
 % half_FIX;
 quarter_FIX;
@@ -15,22 +26,15 @@ model = 'Parametrica';
 load_system(model);
 
 save_system(model);
-load('motionratio')
-Smi.general.jounce_mode     =  1;           %jounce ramp mode
+
 Smi.general.simulation_time =  1;           %[s]
-Smi.general.ramp_slope      =  50;          %[mm/s]
 dt                          =  0.001;       %[s]
 
 
 % sweep parameters
 
-% dx                  =   0:1:70;                                  %range of steering angle tested [deg]
-% imposed_steering    =   -160:5:160;                              %range of steering angle tested [deg]
 
-dx                  =   0:1:10;                                  %range of steering angle tested [deg]
-imposed_steering    =   -160:80:160;                              %range of steering angle tested [deg]
-
-Rack_initial        =   imposed_steering*0.2065;
+Rack_initial        =   imposed_steering*Smi.Car.FRONT.LEFT.rack_ratio;
 
 n_sim               =   numel(imposed_steering)*numel(dx);       %number of simulation
 n_steps             =   1+Smi.general.simulation_time/dt;
@@ -52,19 +56,33 @@ for ii = 1:numel(dx)
     for jj = 1:numel(imposed_steering)
           
           kk=((ii-1)*numel(imposed_steering)+jj);              % sequential index regardless of the presence of two for cycles
-          
-          
+
           Smi = move_dx(dx(ii));                               % modifies the x coordinates by dx(ii)
+          
+          Smi.general.jounce_mode     =  1;           %jounce ramp mode
+          Smi.general.simulation_time =  1;           %[s]
+          Smi.general.ramp_slope      =  30;          %[mm/s]
+          
+          Smi.Car.FRONT.elastic.ammo_motion_ratio         =    motion_ratio(ii);             %[N*s/mm]
+          Smi.Car.FRONT.elastic.ammo_equilibrium_position =    equilibrium_position(ii);     %[N*s/mm]
+          Smi.Car.FRONT.elastic.ammo_static_force         =    static_force(ii);             %[N]
+          
           Smi.Car.FRONT.LEFT.Dimension.Rack_initial = Rack_initial(jj) ;
+          
+          
           simIn(kk)=simIn(kk).setVariable('Smi' , Smi);        % imports the modified coordinates in the simulation
           
+          
           disp(['ciclo ' num2str(kk) ' di ' num2str(n_sim)])   % GUI
+          
     end
 end
 toc
 
 tic
+disp('------------- calculating dx influence -------------')
 out = parsim(simIn,'TransferBaseWorkspaceVariables','on');     % parallel simulation
+disp('------------- dx influence calculated -------------')
 toc
 
 

@@ -1,21 +1,29 @@
 
 %% FRONT ELASTIC
 
-% AMMO
 
-Smi.Car.FRONT.elastic.ammo_spring_stiffness     =    5;      %[N/mm]
-Smi.Car.FRONT.elastic.ammo_damping_coefficient  =    0.1;    %[N*s/mm]
-Smi.Car.FRONT.elastic.ammo_upper_limit          =    20;     %[mm]
-Smi.Car.FRONT.elastic.ammo_lower_limit          =   -20;     %[mm]
+Smi.Car.FRONT.elastic.ammo_spring_stiffness     =    52538;       %[N/mm]
+Smi.Car.FRONT.elastic.ammo_damping_coefficient  =    4892.6;      %[N*s/mm]
+Smi.Car.FRONT.elastic.ammo_motion_ratio         =    1.058;       %[N*s/mm]
+Smi.Car.FRONT.elastic.ammo_equilibrium_position =    11.620;      %[N*s/mm]
+Smi.Car.FRONT.elastic.ammo_static_force         =    610.542;     %[N]
+
+Smi.Car.FRONT.elastic.tire_spring_stiffness     =    117000;      %[N/mm]
+Smi.Car.FRONT.elastic.tire_damping_coefficient  =    50;          %[N*s/mm]
+
 Smi.Car.FRONT.elastic.ARB_stiffness             =   0;       %[N/deg]
 
 
 %% REAR ELASTIC
 
-% AMMO
 
-Smi.Car.REAR.elastic.ammo_spring_stiffness     =    5;      %[N/mm]
-Smi.Car.REAR.elastic.ammo_damping_coefficient  =    0.1;    %[N*s/mm]
-Smi.Car.REAR.elastic.ammo_upper_limit          =    20;     %[mm]
-Smi.Car.REAR.elastic.ammo_lower_limit          =   -20;     %[mm]
+Smi.Car.REAR.elastic.ammo_spring_stiffness     =    52538;       %[N/mm]
+Smi.Car.REAR.elastic.ammo_damping_coefficient  =    4892.6;      %[N*s/mm]
+Smi.Car.REAR.elastic.ammo_motion_ratio         =    1.058;       %[N*s/mm]
+Smi.Car.REAR.elastic.ammo_equilibrium_position =    11.620;      %[N*s/mm]
+Smi.Car.REAR.elastic.ammo_static_force         =    610.542;     %[N]
+
+Smi.Car.REAR.elastic.tire_spring_stiffness     =    117000;      %[N/mm]
+Smi.Car.REAR.elastic.tire_damping_coefficient  =    50;          %[N*s/mm]
+
 Smi.Car.REAR.elastic.ARB_stiffness             =   0;       %[N/deg]

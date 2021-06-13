@@ -1,8 +1,3 @@
-%%intro
-clear
-clc
-close all
-
 %% folder selection
 addpath('analysis');
 addpath('Parameters');
