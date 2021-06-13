@@ -158,6 +158,11 @@ Smi.Car.FRONT.LEFT.Dimension.ARB_link          = distanza(Smi.Car.FRONT.LEFT.CRA
 % initial rack displacement
 
   Smi.Car.FRONT.LEFT.Dimension.Rack_initial     = Smi.Car.FRONT.LEFT.initial_steering*Smi.Car.FRONT.LEFT.rack_ratio;
+  
+  
+%% elastic dimension
 
+Smi.Car.FRONT.elastic.ammo_static_force         =    Smi.Car.FRONT.LEFT.static_mass*9.81/Smi.Car.FRONT.elastic.ammo_motion_ratio;     %[N]
+Smi.Car.FRONT.elastic.ammo_equilibrium_position =    Smi.Car.FRONT.elastic.ammo_static_force/(Smi.Car.FRONT.elastic.ammo_spring_stiffness/1000);   %[mm]
 
 

@@ -29,7 +29,7 @@ Smi.Car.FRONT.LEFT.TOE                      =     0;                            
 Smi.Car.FRONT.LEFT.OUTER_ACTUATOR           =     [1550.042	612.490	-400.00];          %[mm]
 Smi.Car.FRONT.LEFT.initial_steering         =     0;                                   %[deg]
 Smi.Car.FRONT.LEFT.rack_ratio               =     0.20625;                             %[mm/deg]
-Smi.Car.FRONT.LEFT.static_mass              =     65.87;                               %[kg]
+Smi.Car.FRONT.LEFT.static_mass              =     53.797;                              %[kg]
 
 
 %% FRONT RIGHT SUSPENSION
